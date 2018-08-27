@@ -7,9 +7,9 @@
 /oeminfo           emmc      /dev/block/bootdevice/by-name/oeminfo           flags=display="OEMinfo";backup=1
 /data              f2fs      /dev/block/bootdevice/by-name/userdata
 /system            ext4      /dev/block/bootdevice/by-name/system
-/system_image      emmc      /dev/block/bootdevice/by-name/system            flashimg=1
+/system_image      emmc      /dev/block/bootdevice/by-name/system            flags=display="System Image";backup=1;flashimg=1
 /vendor            ext4      /dev/block/bootdevice/by-name/vendor
-/vendor_image      emmc      /dev/block/bootdevice/by-name/vendor            flashimg=1
+/vendor_image      emmc      /dev/block/bootdevice/by-name/vendor            flags=display="Vendor Image";backup=1;flashimg=1
 /external_sd       vfat      /dev/block/mmcblk1p1  /dev/block/mmcblk1        flags=display="MicroSD Card";storage;wipeingui;removable
 #/usbotg            auto     /dev/block/sda1         /dev/block/sda          flags=display="USB OTG";storage;removable;backup=0
 #/devices/hi_mci.1/mmc_host/mmc1/*                       auto                auto      defaults                                      flags=display="MicroSD Card";storage;wipeingui;removable
