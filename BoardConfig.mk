@@ -64,3 +64,7 @@ BOARD_CUSTOM_BOOTIMG_MK := device/huawei/berkeley/custombootimg.mk
 # Debug flags
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+
+# seliux
+SELINUX_IGNORE_NEVERALLOWS := true
+BOARD_SEPOLICY_DIRS += device/huawei/berkeley/sepolicy/twrp

@@ -1,0 +1,2 @@
+allow tee rootfs:file { read entrypoint execute };
+allow tee tee:process { execmem };
