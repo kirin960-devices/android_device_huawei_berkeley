@@ -45,6 +45,15 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 
+BOARD_ROOT_EXTRA_FOLDERS := \
+    cust \
+    hw_odm \
+    modem_log \
+    preload \
+    sec_storage \
+    splash2 \
+    version
+
 TW_THEME := portrait_hdpi
 BOARD_SUPPRESS_SECURE_ERASE := true
 RECOVERY_SDCARD_ON_DATA := true
@@ -60,6 +69,11 @@ TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/Battery
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.gs6/lun.%d/file"
 # Device crashes if /sbin/modprobe is present so this is needed:
 BOARD_CUSTOM_BOOTIMG_MK := device/huawei/berkeley/custombootimg.mk
+
+# Crypto
+PLATFORM_SECURITY_PATCH := 2025-12-31
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
 
 # Debug flags
 TWRP_INCLUDE_LOGCAT := true

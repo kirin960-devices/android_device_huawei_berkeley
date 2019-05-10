@@ -1,0 +1,4 @@
+ro.product.board=kirin970
+ro.board.platform=kirin970
+ro.build.version.security_patch=2025-12-31
+

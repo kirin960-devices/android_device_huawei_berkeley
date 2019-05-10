@@ -5,9 +5,16 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
 
+    # Apply strict SELinux checking of PROT_EXEC on mmap/mprotect calls.
+    write /sys/fs/selinux/checkreqprot 0
+
+    # Set the security context for the init process.
+    # This should occur before anything else (e.g. ueventd) is started.
+    setcon u:r:init:s0
+
 on init
+    export ANDROID_ROOT /system_root
     mkdir /config 0500 root root
-    mkdir /splash2
 
  # Mount staging areas for devices managed by vold
     # See storage config details at http://source.android.com/tech/storage/
@@ -25,9 +32,7 @@ service fixlinks /sbin/fixlinks.sh
     disabled
     seclabel u:r:recovery:s0
 
-service oeminfo_nvm /sbin/true
-    disabled
-
+    mount ext4 /dev/block/bootdevice/by-name/splash2 /splash2 wait rw nosuid nodev context=u:object_r:splash2_data_file:s0
     restorecon /splash2
     chmod 775 /splash2
     chown root system /splash2
