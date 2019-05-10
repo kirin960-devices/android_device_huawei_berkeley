@@ -1,6 +1,10 @@
 import /init.usb.rc
 import /init.usb.configfs.rc
 
+on early-init
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
+
 on init
     mkdir /config 0500 root root
     mkdir /splash2
